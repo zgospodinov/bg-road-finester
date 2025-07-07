@@ -1,6 +1,5 @@
 import os
 import re
-from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -8,11 +7,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-load_dotenv()
-
-ID_CARD = os.getenv("ID_CARD")
-DRIVING_LICENSE = os.getenv("DRIVING_LICENSE")
-E_USLUGI_MVR_URL = os.getenv("E_USLUGI_MVR")
+ID_CARD = os.environ.get("ID_CARD")
+DRIVING_LICENSE = os.environ.get("DRIVING_LICENSE")
+E_USLUGI_MVR_URL = os.environ.get("E_USLUGI_MVR")
 
 def extract_section_content(html: str) -> str:
     """

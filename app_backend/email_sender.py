@@ -1,20 +1,18 @@
 import os
 import smtplib
 import ssl
-from dotenv import load_dotenv
 from email.message import EmailMessage
 
-load_dotenv()
 
 class EmailSender:
     def __init__(self):
-        self.email_to = os.getenv("EMAIL_TO")
-        self.email_from = os.getenv("EMAIL_FROM")
-        self.smtp_server = os.getenv("SMTP_SERVER")
-        self.smtp_port = int(os.getenv("SMTP_PORT"))
-        self.smtp_user = os.getenv("SMTP_USER")
-        self.smtp_pass = os.getenv("SMTP_PASS")
-        self.e_uslugi_mvr_url = os.getenv("E_USLUGI_MVR")
+        self.email_to = os.environ.get("EMAIL_TO")
+        self.email_from = os.environ.get("EMAIL_FROM")
+        self.smtp_server = os.environ.get("SMTP_SERVER")
+        self.smtp_port = int(os.environ.get("SMTP_PORT"))
+        self.smtp_user = os.environ.get("SMTP_USER")
+        self.smtp_pass = os.environ.get("SMTP_PASS")
+        self.e_uslugi_mvr_url = os.environ.get("E_USLUGI_MVR")
 
     def send_email(self, body, subject="Обобщена проверка на задължения по фиш, НП или споразумение"):
         """
