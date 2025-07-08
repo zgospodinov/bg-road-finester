@@ -26,7 +26,7 @@ node_modules
 dist
 
 # Local python packages
-.python_packages/
+# .python_packages/
 
 # Python Environments
 .env
